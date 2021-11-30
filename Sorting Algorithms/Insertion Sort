@@ -1,0 +1,62 @@
+/*
+Insertion Sort : 
+    It is an inplace Sorting algorithm. In this we divide the input array in two parts one is sorted and
+    other is unsorted. We choose elements from unsorted array one by one and put it in its correct position in sorted array.
+*/
+#include<iostream>
+
+using namespace std;
+
+void insertionSort(int arr[],int n)
+{
+    int key;
+    for(int i=1;i<n;i++)
+    {
+        //Selecting the Element to be inserted at its correct position in the Sorted Part of the array
+
+        key = arr[i];
+        for(int j=i-1;j>=0;j--)
+        {
+            //Comparing the Chosen Element with the Rest of Element in Sorted array and swapping if required
+
+            if(key<arr[j])
+            {
+                swap(arr[j],arr[j+1]);
+            }
+            else
+            {
+                arr[j+1] = key;
+                break;
+            }
+        }
+    }
+}
+int main()
+{
+    int n;
+    cout<<"Enter no of elements in the array : ";
+    
+    //Input the number of Elements in the array
+    
+    cin>>n;
+    int arr[n];
+    cout<<"Enter the Elements : ";
+
+    //Input the Elements of the Array to be sorted
+
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+
+    //Calling Insertion Sort Function to sort the Iput Array
+
+    insertionSort(arr,n);
+
+    //Printing the Sorted Array
+
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
